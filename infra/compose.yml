@@ -1,0 +1,38 @@
+name: project1-fileUploader-infra
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: p1-postgres
+    environment:
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
+      - POSTGRES_DB=appdb
+    ports:
+      - "55433:5432"
+    volumes:
+      - p1_pg_data:/var/lib/postgresql/data
+
+  minio:
+    image: minio/minio:latest
+    container_name: p1-minio
+    environment:
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio12345
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - p1_minio_data:/data
+
+  kafka:
+    image: apache/kafka:latest
+    container_name: p1-kafka
+    ports:
+      - "9096:9092"
+
+volumes:
+  p1_pg_data:
+  p1_minio_data:
+  p1_kafka_data:

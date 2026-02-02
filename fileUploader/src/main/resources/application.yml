@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:55433/appdb
+    username: app
+    password: app
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+  kafka:
+    bootstrap-servers: localhost:9096
+    consumer:
+      group-id: uploader-worker
+      auto-offset-reset: earliest
+    producer:
+      acks: all
+
+app:
+  tmp-dir: ./tmp
+  kafka:
+    topic-upload-jobs: upload-jobs
+  outbox:
+    batch-size: 50
+    enabled: true
+logging:
+  level:
+    com.zaxxer.hikari: DEBUG
+
