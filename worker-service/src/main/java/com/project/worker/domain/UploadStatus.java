@@ -1,4 +1,4 @@
-package com.project.fileuploader.domain;
+package com.project.worker.domain;
 
 public enum UploadStatus {
     RECEIVED,

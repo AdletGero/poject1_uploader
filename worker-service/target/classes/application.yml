@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/appdb
+    url: jdbc:postgresql://localhost:55433/appdb
     username: app
     password: app
   jpa:
@@ -21,12 +21,23 @@ spring:
     consumer:
       group-id: file-worker
       auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+       spring.json.trusted.packages: com.project.common.events
+       spring.json.value.default.type: com.project.common.events.UploadJobEvent
+       spring.json.use.type.headers: false
     listener:
       auto-startup: true
 
 app:
   kafka:
     topic-upload-jobs: upload-jobs
+  storage:
+    endpoint: http://localhost:9000
+    access-key: minio
+    secret-key: minio12345
+    bucket: uploads
 
 logging:
   level:

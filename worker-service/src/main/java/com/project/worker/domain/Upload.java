@@ -1,6 +1,12 @@
-package com.project.fileuploader.domain;
+package com.project.worker.domain;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -20,12 +26,6 @@ public class Upload {
     @Column(nullable = false, length = 24)
     private UploadStatus status;
 
-    @Column(name = "storage_key", length = 1024)
-    private String storageKey;
-
-    @Column(name = "error_message", length = 2048)
-    private String errorMessage;
-
     @Column(name = "original_filename", length = 512)
     private String originalFilename;
 
@@ -37,6 +37,12 @@ public class Upload {
 
     @Column(name = "temp_path", nullable = false, length = 1024)
     private String tempPath;
+
+    @Column(name = "storage_key", length = 1024)
+    private String storageKey;
+
+    @Column(name = "error_message", length = 2048)
+    private String errorMessage;
 
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
@@ -103,6 +109,11 @@ public class Upload {
     public String getTempPath() {
         return tempPath;
     }
+
+    public void setTempPath(String tempPath) {
+        this.tempPath = tempPath;
+    }
+
     public String getStorageKey() {
         return storageKey;
     }
@@ -117,10 +128,6 @@ public class Upload {
 
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
-    }
-
-    public void setTempPath(String tempPath) {
-        this.tempPath = tempPath;
     }
 
     public OffsetDateTime getCreatedAt() {
