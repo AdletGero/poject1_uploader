@@ -1,0 +1,6 @@
+/Users/Odolet_1/Desktop/project1-fileUploader/worker-service/src/main/java/com/project/worker/WorkerServiceApplication.java
+/Users/Odolet_1/Desktop/project1-fileUploader/worker-service/src/main/java/com/project/worker/config/StorageConfig.java
+/Users/Odolet_1/Desktop/project1-fileUploader/worker-service/src/main/java/com/project/worker/domain/Upload.java
+/Users/Odolet_1/Desktop/project1-fileUploader/worker-service/src/main/java/com/project/worker/domain/UploadStatus.java
+/Users/Odolet_1/Desktop/project1-fileUploader/worker-service/src/main/java/com/project/worker/repo/UploadRepository.java
+/Users/Odolet_1/Desktop/project1-fileUploader/worker-service/src/main/java/com/project/worker/service/UploadWorker.java

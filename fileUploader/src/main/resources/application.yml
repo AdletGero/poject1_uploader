@@ -26,7 +26,7 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 app:
-  tmp-dir: ./tmp
+  tmp-dir: ./tmp/file-uploader
   kafka:
     topic-upload-jobs: upload-jobs
   outbox:

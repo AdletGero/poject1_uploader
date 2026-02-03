@@ -1,0 +1,6 @@
+com/project/worker/config/StorageConfig.class
+com/project/worker/domain/UploadStatus.class
+com/project/worker/domain/Upload.class
+com/project/worker/service/UploadWorker.class
+com/project/worker/WorkerServiceApplication.class
+com/project/worker/repo/UploadRepository.class

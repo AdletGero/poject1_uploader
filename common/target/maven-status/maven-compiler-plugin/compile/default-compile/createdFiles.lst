@@ -1,0 +1,2 @@
+com/project/common/events/UploadJobEvent.class
+com/project/common/events/UploadRequestedEvent.class
