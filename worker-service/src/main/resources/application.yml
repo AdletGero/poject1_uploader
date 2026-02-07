@@ -17,7 +17,7 @@ spring:
     enabled: false
 
   kafka:
-    bootstrap-servers: localhost:9096
+    bootstrap-servers: localhost:19092
     consumer:
       group-id: file-worker
       auto-offset-reset: earliest
