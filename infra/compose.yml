@@ -1,6 +1,29 @@
 name: project1-fileUploader-infra
 
 services:
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: p1-app
+    depends_on:
+      - postgres
+      - kafka
+      - minio
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/appdb
+      SPRING_DATASOURCE_USERNAME: app
+      SPRING_DATASOURCE_PASSWORD: app
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      APP_TMP_DIR: /tmp/file-uploader
+      APP_STORAGE_ENDPOINT: http://minio:9000
+      APP_STORAGE_ACCESS_KEY: minio
+      APP_STORAGE_SECRET_KEY: minio12345
+      APP_STORAGE_BUCKET: uploads
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+
   postgres:
     image: postgres:16
     container_name: p1-postgres
