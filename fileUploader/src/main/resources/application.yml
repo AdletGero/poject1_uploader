@@ -16,7 +16,7 @@ spring:
     enabled: true
 
   kafka:
-    bootstrap-servers: localhost:9096
+    bootstrap-servers: localhost:19092
     consumer:
       group-id: uploader-worker
       auto-offset-reset: earliest
@@ -38,4 +38,3 @@ app:
 logging:
   level:
     com.zaxxer.hikari: DEBUG
-
